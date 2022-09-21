@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="cssAdmin/style.css">
+
+</head>
+<body>
+    
+    <input type="checkbox" id="sidebar-toggle">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="brand">
+                <span class="ti-unlink"></span> 
+                <span>ADMINISTRADOR</span>
+            </h3> 
+            <label for="sidebar-toggle" class="ti-menu-alt"></label>
+        </div>
+        
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="">
+                        <span class="ti-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="ti-face-smile"></span>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="ti-agenda"></span>
+                        <span>Actividad</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="ti-clipboard"></span>
+                        <span>Inventario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="ti-folder"></span>
+                        <span>Carpetas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="ti-time"></span>
+                        <span>Tiempo transcurrido</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="ti-settings"></span>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    <div class="main-content">
+        <body>
+            <h1>ACTIVIDAD</h1>
+            <h4>PRODUCCION</h4>
+            <canvas id="myChart"></canvas>
+            <br>
+            <h4>VENTAS</h4>
+            <canvas id="myChart1"></canvas>
+            <br>
+            <h4>RESUMEN GENERAL</h4>
+            <canvas id="myChart2"></canvas>
+            <br>
+            <script src="chart.js"></script>
+            <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    datasets: [{
+                        label: 'Ingresos',
+                        backgroundColor: '#42a5f5',
+                        borderColor: 'gray',
+                        data: [7, 8, 5, 2, 8, 10, 7,-7,4,9,-8,5]
+                    },{
+                        label: 'Gastos',
+                        backgroundColor: '#ffab91',
+                        borderColor: 'yellow',
+                        data: [5, -8, 10, 3,-7,6,8,-2,-6,9,-7,2]
+                    }		
+                    ]},
+                options: {responsive: true}
+            });
+            var ctx1 = document.getElementById('myChart1').getContext('2d');
+            var chart = new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    datasets: [{
+                        label: 'Ganancias',
+                        backgroundColor: '#42a5f5',
+                        borderColor: 'gray',
+                        data: [7, 8, 5, 2, 8, 10, 7,-7,4,9,-8,5]
+                    }		
+                    ]},
+                options: {}
+            });
+            var ctx2 = document.getElementById('myChart2').getContext('2d');
+            var chart = new Chart(ctx2, {
+                type: 'doughnut',
+                data: 	
+                {
+                            datasets: [{
+                                 data: [60,18,10, 8, 4],
+                                backgroundColor: ['#42a5f5', 'red', 'green','blue','violet'],
+                                label: 'Comparacion de navegadores'
+                            }],
+                            labels: [
+                                'Ventas realizadas',
+                                'Gastos',
+                                'Inventario',
+                                'Clientes frecuentes',
+                                'Otros'
+                            ]},
+                options: {}
+            });
+            </script>
+            </body>               
+    </div>
+</body>
+</html>
